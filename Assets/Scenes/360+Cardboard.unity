@@ -600,7 +600,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.791}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.6666667}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1062,6 +1062,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 328488241303373860, guid: d8146150e16620c46a7e88d227971fb4,
+        type: 2}
+      propertyPath: m_Looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8146150e16620c46a7e88d227971fb4, type: 2}
   m_IsPrefabParent: 0
@@ -1198,9 +1203,9 @@ MonoBehaviour:
   cat: {fileID: 8300000, guid: 81dd128bbcbb91444bfda31d4dcf675a, type: 3}
   man: {fileID: 8300000, guid: 261ed60d86916c84d8e05f0f09664aa5, type: 3}
   snake: {fileID: 8300000, guid: 9275724aa56761e4e98386367ba22443, type: 3}
-  catWin: {fileID: 0}
-  catLose: {fileID: 0}
-  manLose: {fileID: 0}
-  manWin: {fileID: 0}
-  snakeWin: {fileID: 0}
-  snakeLose: {fileID: 0}
+  catWin: {fileID: 8300000, guid: 04e63ed17af71ed45a5a4b0ffda8b424, type: 3}
+  catLose: {fileID: 8300000, guid: b18e2a3c9528b2b44aaa7c45e1c2ff9d, type: 3}
+  manLose: {fileID: 8300000, guid: da4eedf4bfdbb59428ecbe53470590b6, type: 3}
+  manWin: {fileID: 8300000, guid: 56e406cb3d7f769479ce510a3850c66f, type: 3}
+  snakeWin: {fileID: 8300000, guid: 41eda52fb8125494bb1dca9de4034c00, type: 3}
+  snakeLose: {fileID: 8300000, guid: bf8a58bcb0e81b84e8c30d2c9a2b6493, type: 3}

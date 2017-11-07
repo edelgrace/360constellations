@@ -134,11 +134,13 @@ public class Narration : MonoBehaviour {
                     break;
                 // enemy chosen
                 case 3:
+                    state = 4;
+
                     if(enemyChosen)
                     {
                         // play the fight spiel
-                        int index = theEnemy + theHero + 3;
-                        narration01.clip = heroClips[index];
+                        narration01.clip = heroClips[theEnemy];
+                        narration01.Play();
                     }
                     else
                     {
@@ -148,7 +150,11 @@ public class Narration : MonoBehaviour {
                         enemy1.gameObject.SetActive(true);
                         enemy2.gameObject.SetActive(true);
                     }
-
+ 
+                    break;
+                case 4:
+                    playerToControl.Play();
+                    narration01.Stop();
                     break;
             }
         }
@@ -177,19 +183,42 @@ public class Narration : MonoBehaviour {
         hero1.gameObject.SetActive(false);
         hero2.gameObject.SetActive(false);
     }
-
+    
     public void wmnBtn()
     {
         enemyChosen = true;
-        theEnemy = 0;
+        switch(theHero)
+        {
+            case 0:
+                theEnemy = 4;
+                break;
+            case 1:
+                theEnemy = 6;
+                break;
+            case 2:
+                theEnemy = 8;
+                break;
 
+        }
         enemy1.gameObject.SetActive(false);
     }
 
     public void dveBtn()
     {
         enemyChosen = true;
-        theEnemy = 1;
+        switch (theHero)
+        {
+            case 0:
+                theEnemy = 3;
+                break;
+            case 1:
+                theEnemy = 5;
+                break;
+            case 2:
+                theEnemy = 7;
+                break;
+
+        }
         enemy2.gameObject.SetActive(false);
     }
 
