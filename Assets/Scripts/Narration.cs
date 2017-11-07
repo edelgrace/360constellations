@@ -12,8 +12,8 @@ public class Narration : MonoBehaviour {
     public Button hero1;
     public Button hero2;
     public Button hero3;
-    public Button enemy1;
-    public Button enemy2;
+    public Button enemy1;       // dove
+    public Button enemy2;       // woman
 
     // Audio clips
     public AudioClip intro;
@@ -22,18 +22,23 @@ public class Narration : MonoBehaviour {
     public AudioClip cat;
     public AudioClip man;
     public AudioClip snake;
-    public AudioClip catWin;
-    public AudioClip catLose;
-    public AudioClip manLose;
-    public AudioClip manWin;
-    public AudioClip snakeWin;
-    public AudioClip snakeLose;
+
+    public AudioClip catWin;    // cat vs dove
+    public AudioClip catLose;   // cat vs woman
+
+    public AudioClip manLose;   // cat vs woman
+    public AudioClip manWin;    // cat vs dove
+
+    public AudioClip snakeWin;  // snake vs woman
+    public AudioClip snakeLose; // snake vs dove
 
     private AudioClip[] heroClips;
     private Button[] buttons;
 
     private int state = 0;
     private int theHero = 0;
+    private int theEnemy = 0;
+
     private bool started = false;
     private bool heroChosen = false;
     private bool enemyChosen = false;
@@ -169,6 +174,21 @@ public class Narration : MonoBehaviour {
         theHero = 2;
         hero1.gameObject.SetActive(false);
         hero2.gameObject.SetActive(false);
+    }
+
+    public void wmnBtn()
+    {
+        enemyChosen = true;
+        theEnemy = 0;
+
+        enemy1.gameObject.SetActive(false);
+    }
+
+    public void dveBtn()
+    {
+        enemyChosen = true;
+        theEnemy = 1;
+        enemy2.gameObject.SetActive(false);
     }
 
     void PlaySound()
