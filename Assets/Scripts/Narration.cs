@@ -52,8 +52,8 @@ public class Narration : MonoBehaviour {
 
         // put clips into an array
         AudioClip[] clips = { cat, man, snake, catWin, 
-            catLose, manWin, manLose,
-            snakeWin, snakeLose
+            catLose, manLose, manWin,
+            snakeLose, snakeWin
             };
 
         heroClips = clips;
@@ -136,7 +136,9 @@ public class Narration : MonoBehaviour {
                 case 3:
                     if(enemyChosen)
                     {
-
+                        // play the fight spiel
+                        int index = theEnemy + theHero + 3;
+                        narration01.clip = heroClips[index];
                     }
                     else
                     {
