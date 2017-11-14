@@ -89,11 +89,13 @@ public class Narration : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         // check if started
         if(narration01.isPlaying)
         {
             started = true;
         }
+
         // go through states
         else if(!narration01.isPlaying && started) {
             switch (state)
