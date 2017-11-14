@@ -45,6 +45,7 @@ public class Narration : MonoBehaviour {
     private int state = 0;
     private int theHero = 0;
     private int theEnemy = 0;
+    private int actualEnemy = 0;
 
     private bool started = false;
     private bool heroChosen = false;
@@ -66,7 +67,7 @@ public class Narration : MonoBehaviour {
         heroClips = clips;
 
         // put buttons into an array
-        Button[] btns = { hero1, hero2, hero3 };
+        Button[] btns = { hero1, hero2, hero3, enemy1, enemy2 };
         buttons = btns;
 
         // turn off hero buttons
@@ -119,8 +120,6 @@ public class Narration : MonoBehaviour {
                         buttons[theHero].colors = prev;
 
                         state = 2;
-                        enemy1.gameObject.SetActive(true);
-                        enemy2.gameObject.SetActive(true);
                     }
                     else // turn on buttons and pause video
                     {
@@ -136,26 +135,17 @@ public class Narration : MonoBehaviour {
                 // choose an enemy
                 case 2:
 
-                    if (enemyChosen)
-                    {
-                        // resume video
-                        playerToControl.Play();
+                    // resume video
+                    playerToControl.Play();
 
-                        // turn off hero buttons
-                        hero1.gameObject.SetActive(false);
-                        hero2.gameObject.SetActive(false);
-                        hero3.gameObject.SetActive(false);
+                    // play enemy spiel
+                    narration01.clip = enemy;
+                    narration01.Play();
 
-
-                    }
-                    else
-                    {
-
-                        playerToControl.Pause();
-                        hero1.gameObject.SetActive(false);
-                        hero2.gameObject.SetActive(false);
-                        hero3.gameObject.SetActive(false);
-                    }
+                    // turn off hero buttons
+                    hero1.gameObject.SetActive(false);
+                    hero2.gameObject.SetActive(false);
+                    hero3.gameObject.SetActive(false);
 
 
                     state = 3;
@@ -163,7 +153,6 @@ public class Narration : MonoBehaviour {
                     break;
                 // enemy chosen
                 case 3:
-                    state = 4;
 
                     if(enemyChosen)
                     {
@@ -171,7 +160,10 @@ public class Narration : MonoBehaviour {
                         narration01.clip = heroClips[theEnemy];
                         narration01.Play();
 
-                        switch(theHero)
+                        ColorBlock prev = buttons[actualEnemy + 3].colors;
+                        prev.normalColor = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+
+                        switch (theHero)
                         {
                             case 0:
                                 t3.gameObject.SetActive(true);
@@ -183,9 +175,11 @@ public class Narration : MonoBehaviour {
                                 t1.gameObject.SetActive(true);
                                 break;
                             default:
-                                t3.gameObject.SetActive(true);
+                                t2.gameObject.SetActive(true);
                                 break;
                         }
+
+                        state = 4;
                     }
                     else
                     {
@@ -199,7 +193,30 @@ public class Narration : MonoBehaviour {
                     break;
                 case 4:
                     playerToControl.Play();
-                    narration01.Stop();
+
+                    // reset
+                    heroChosen = false;
+                    enemyChosen = false;
+                    theEnemy = 0;
+                    theHero = 0;
+                    
+                    // turn off enemy buttons
+                    enemy1.gameObject.SetActive(false);
+                    enemy2.gameObject.SetActive(false);
+
+                    // turn off terrain
+                    t1.gameObject.SetActive(false);
+                    t2.gameObject.SetActive(false);
+                    t3.gameObject.SetActive(false);
+                    t4.gameObject.SetActive(false);
+
+                    // hero buttons on
+                    hero1.gameObject.SetActive(true);
+                    hero2.gameObject.SetActive(true);
+                    hero3.gameObject.SetActive(true);
+
+                    state = 1;
+
                     break;
             }
         }
@@ -231,6 +248,7 @@ public class Narration : MonoBehaviour {
     
     public void wmnBtn()
     {
+        actualEnemy = 1;
         enemyChosen = true;
         switch(theHero)
         {
@@ -250,6 +268,7 @@ public class Narration : MonoBehaviour {
 
     public void dveBtn()
     {
+        actualEnemy = 0;
         enemyChosen = true;
         switch (theHero)
         {
