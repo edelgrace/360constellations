@@ -12,8 +12,15 @@ public class Narration : MonoBehaviour {
     public Button hero1;
     public Button hero2;
     public Button hero3;
-    public Button enemy1;       // dove
-    public Button enemy2;       // woman
+    public Button enemy1;   // dove
+    public Button enemy2;   // woman
+
+
+    // terrain
+    public Terrain t1;  // sandy
+    public Terrain t2;  // rocks
+    public Terrain t3;  // grass
+    public MeshFilter t4;   // water
 
     // Audio clips
     public AudioClip intro;
@@ -70,6 +77,12 @@ public class Narration : MonoBehaviour {
         // turn off enemy buttons
         enemy1.gameObject.SetActive(false);
         enemy2.gameObject.SetActive(false);
+
+        // turn off terrain
+        t1.gameObject.SetActive(false);
+        t2.gameObject.SetActive(false);
+        t3.gameObject.SetActive(false);
+        t4.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -113,21 +126,24 @@ public class Narration : MonoBehaviour {
                         hero1.gameObject.SetActive(true);
                         hero2.gameObject.SetActive(true);
                         hero3.gameObject.SetActive(true);
+
                     }
                     break;
                 // choose an enemy
                 case 2:
-                    // resume video
-                    playerToControl.Play();
 
-                    // play enemy spiel
-                    narration01.clip = enemy;
-                    narration01.Play();
+                    if (enemyChosen)
+                    {
+                        // resume video
+                        playerToControl.Play();
+                        
+                        // turn off hero buttons
+                        hero1.gameObject.SetActive(false);
+                        hero2.gameObject.SetActive(false);
+                        hero3.gameObject.SetActive(false);
 
-                    // turn off hero buttons
-                    hero1.gameObject.SetActive(false);
-                    hero2.gameObject.SetActive(false);
-                    hero3.gameObject.SetActive(false);
+                    }
+
 
                     state = 3;
 

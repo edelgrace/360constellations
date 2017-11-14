@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 294476913}
   - component: {fileID: 294476912}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: GrassTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!154 &542248384
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591759730
 GameObject:
@@ -623,7 +623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!154 &591759731
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -676,7 +676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713469200
 GameObject:
@@ -934,11 +934,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b436d069d11415d1100ab9b44295342, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 6b436d069d11415d1100ab9b44295342, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b436d069d11415d1100ab9b44295342, type: 2}
@@ -1190,6 +1190,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1662729142}
+--- !u!33 &1824424681 stripped
+MeshFilter:
+  m_PrefabParentObject: {fileID: 3300000, guid: 6b436d069d11415d1100ab9b44295342,
+    type: 2}
+  m_PrefabInternal: {fileID: 1182102160}
 --- !u!1001 &1829154989
 Prefab:
   m_ObjectHideFlags: 0
@@ -1442,7 +1447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2115291685
 MonoBehaviour:
@@ -1461,6 +1466,10 @@ MonoBehaviour:
   hero3: {fileID: 96158572}
   enemy1: {fileID: 1192905046}
   enemy2: {fileID: 885486824}
+  t1: {fileID: 542248385}
+  t2: {fileID: 591759732}
+  t3: {fileID: 294476913}
+  t4: {fileID: 1824424681}
   intro: {fileID: 8300000, guid: 8089f7c439e235e41bbb493306899638, type: 3}
   hero: {fileID: 8300000, guid: b65a1b92e9f3714488f30d77cff8be1b, type: 3}
   enemy: {fileID: 8300000, guid: 9897f9b810c8ef946b554bd194d138bb, type: 3}
