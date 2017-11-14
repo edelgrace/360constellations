@@ -95,7 +95,7 @@ public class Narration : MonoBehaviour {
         }
         // go through states
         else if(!narration01.isPlaying && started) {
-            switch(state)
+            switch (state)
             {
                 // choose a hero
                 case 0:
@@ -107,7 +107,7 @@ public class Narration : MonoBehaviour {
                 // hero chosen
                 case 1:
                     // check if hero chosen
-                    if(heroChosen)
+                    if (heroChosen)
                     {
                         // play clip
                         narration01.clip = heroClips[theHero];
@@ -119,6 +119,8 @@ public class Narration : MonoBehaviour {
                         buttons[theHero].colors = prev;
 
                         state = 2;
+                        enemy1.gameObject.SetActive(true);
+                        enemy2.gameObject.SetActive(true);
                     }
                     else // turn on buttons and pause video
                     {
@@ -128,7 +130,9 @@ public class Narration : MonoBehaviour {
                         hero3.gameObject.SetActive(true);
 
                     }
+
                     break;
+
                 // choose an enemy
                 case 2:
 
@@ -136,12 +140,21 @@ public class Narration : MonoBehaviour {
                     {
                         // resume video
                         playerToControl.Play();
-                        
+
                         // turn off hero buttons
                         hero1.gameObject.SetActive(false);
                         hero2.gameObject.SetActive(false);
                         hero3.gameObject.SetActive(false);
 
+
+                    }
+                    else
+                    {
+
+                        playerToControl.Pause();
+                        hero1.gameObject.SetActive(false);
+                        hero2.gameObject.SetActive(false);
+                        hero3.gameObject.SetActive(false);
                     }
 
 
@@ -157,6 +170,22 @@ public class Narration : MonoBehaviour {
                         // play the fight spiel
                         narration01.clip = heroClips[theEnemy];
                         narration01.Play();
+
+                        switch(theHero)
+                        {
+                            case 0:
+                                t3.gameObject.SetActive(true);
+                                break;
+                            case 1:
+                                t4.gameObject.SetActive(true);
+                                break;
+                            case 2:
+                                t1.gameObject.SetActive(true);
+                                break;
+                            default:
+                                t3.gameObject.SetActive(true);
+                                break;
+                        }
                     }
                     else
                     {
