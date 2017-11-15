@@ -2,7 +2,7 @@
 
 Virtual simulation of a planetarium. Runs only on Android!
 
-## How to Run
+## How to Compile and Run
 
 * Download the source code
 * Open up Unity
@@ -12,3 +12,9 @@ Virtual simulation of a planetarium. Runs only on Android!
 * Select "Android"
 * Select "Build and Run"
 * After the program is done building, put phone in Google Cardboard and watch!
+
+## How to Run
+
+* Download the APK on an Android phone
+* Run the APK
+* Put the phone in Google Cardbaord
